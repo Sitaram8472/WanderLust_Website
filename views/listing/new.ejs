@@ -1,14 +1,20 @@
-<% layout("/layout/boilerplate") %>
-<br><br>
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h2>Create a new listing</h2>
-   
-    <form method="POST" action="/listing" novalidate class="needs-validation">
+<% layout("/layout/boilerplate") %> <br /><br />
+<div class="row">
+  <div class="col-8 offset-2">
+    <h2>Create a new listing</h2>
+
+    <form
+      method="POST"
+      action="/listing"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input
           name="listing[title]"
+          id="title"
           placeholder="Enter title"
           type="text"
           class="form-control"
@@ -21,6 +27,7 @@
         <label for="description" class="form-label">Description</label>
         <textarea
           name="listing[description]"
+          id="description"
           placeholder="Enter description"
           class="form-control"
           required
@@ -28,13 +35,25 @@
         <div class="invalid-feedback">please enter a short description</div>
       </div>
 
-      <div class="mb-3">
-        <label for="image" class="form-label">Image Link</label>
+      <!-- <div class="mb-3">
+        <label for="image" class="form-label">Upload image URL</label>
         <input
           name="listing[image]"
-          placeholder="Enter image URL"
+          id="image"
+          placeholder="Uplaod Image URL"
           type="text"
           class="form-control"
+        />
+      </div> -->
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload image</label>
+        <input
+          name="listing[image]"
+          id="image"
+          type="file"
+          class="form-control"
+          required
         />
       </div>
 
@@ -42,6 +61,7 @@
         <label for="price" class="form-label">Price</label>
         <input
           name="listing[price]"
+          id="price"
           placeholder="1200"
           class="form-control"
           type="number"
@@ -54,6 +74,7 @@
         <label for="location" class="form-label">Location</label>
         <input
           name="listing[location]"
+          id="location"
           placeholder="Jaipur, Rajasthan"
           type="text"
           class="form-control"
@@ -66,6 +87,7 @@
         <label for="country" class="form-label">Country</label>
         <input
           name="listing[country]"
+          id="country"
           placeholder="India"
           type="text"
           class="form-control"
@@ -75,8 +97,7 @@
       </div>
 
       <button class="btn btn-dark">Add Listing</button>
-      <br><br>
+      <br /><br />
     </form>
-  </body>
-   </div>
-    </div>
+  </div>
+</div>

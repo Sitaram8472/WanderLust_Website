@@ -1,3 +1,8 @@
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
+// console.log(process.env.secret);
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -38,7 +43,7 @@ async function main() {
 }
 
 app.get("/", (req, res) => {
-  res.send("Hi, I am root");
+  res.send("i am root");
 });
 
 // data access form models and send in index.ejs index route
@@ -75,6 +80,7 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   // console.log(res.locals.success);
+  res.locals.currUser = req.user;
   next();
 });
 
